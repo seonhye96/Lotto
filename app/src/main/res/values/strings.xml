@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lotto</string>
+    <string name="n">홍길동님의\n로또번호입니다.</string>
 </resources>
