@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.naesseuapp.lotto.ResultActivity"></activity>
-        <activity android:name="com.naesseuapp.lotto.ConstellationActivity" />
-        <activity android:name="com.naesseuapp.lotto.NameActivity" />
-        <activity android:name="com.naesseuapp.lotto.MainActivity">
+        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".ConstellationActivity" />
+        <activity android:name=".NameActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
