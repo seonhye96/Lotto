@@ -37,7 +37,6 @@
     <view
         android:id="@+id/resultLabel"
         class="androidx.appcompat.widget.AppCompatTextView"
-        id="@+id/view2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
