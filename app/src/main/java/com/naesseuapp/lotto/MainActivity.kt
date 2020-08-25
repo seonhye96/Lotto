@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, ResultActivity::class.java)
 
-            intent.putIntegerArrayListExtra("result", ArrayList(getRandomLottoNumbers()))
+            intent.putIntegerArrayListExtra("result", ArrayList(getShuffleLottoNumbers()))
 
             startActivity(intent)
         }
@@ -37,6 +37,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /* -- Shuffle 사용 --*/
+    fun getShuffleLottoNumbers():MutableList<Int>{
+        // 1~45 번에 로또 번호를 저장할 리스트 생성
+        var list = mutableListOf<Int>()
+
+        // 1~45 까지 for 문을 돌면서 리스트에 로또 번호 저장
+        for(number in 1..45){
+            list.add(number)
+        }
+
+        // 리스트를 무작위로 섞음
+        list.shuffle()
+
+        return list.subList(0, 6)
+    }
+    /* -- Random() 사용 --
     //    랜덤으로 1~45 번중 하나의 번호를 생성하는 함수
     fun getRandomLottoNumber() : Int {
         //Random.nextInt 는 0~전달받은 파라미터 값 미만의 번호를 생성
@@ -56,14 +72,14 @@ class MainActivity : AppCompatActivity() {
             do{
                 //랜덤한 번호를 추출해 number 변수에 저장
                 number = getRandomLottoNumber()
-
                 // lottoNumbers 에 number 변수의 값이 없을 때까지 반복
             }while (lottoNumbers.contains(number))
-
             // 이미 뽑은 리스트에 없는 번호가 나올때까지 반복했으므로 중복이 없는 상태
             // 추출된 번호를 뽑은 리스트에 추가
             lottoNumbers.add(number)
         }
         return lottoNumbers
     }
+     */
+
 }
