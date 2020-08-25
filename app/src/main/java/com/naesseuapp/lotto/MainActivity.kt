@@ -6,17 +6,22 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setupEvents()
+        setupValues()
+    }
+
+    override fun setupEvents() {
 //        랜덤으로 번호 생성 카드를 클릭 이벤트 리스너
         randomCard.setOnClickListener {
 
-            val intent = Intent(this, ResultActivity::class.java)
-
+            val intent = Intent(mContext, ResultActivity::class.java)
             intent.putIntegerArrayListExtra("result", ArrayList(getShuffleLottoNumbers()))
 
             startActivity(intent)
@@ -24,16 +29,16 @@ class MainActivity : AppCompatActivity() {
 
 //        별자리로 번호 생성 카드를 클릭 이벤트 리스너
         constellationCard.setOnClickListener {
-//            ConstellationActivity 를 시작하는 Intent 를 만들고 startActivity로 실행
-            startActivity(Intent(this, ConstellationActivity::class.java))
+            startActivity(Intent(mContext, ConstellationActivity::class.java))
         }
 
 //        이름으로 번호 생성 카드를 클릭 이벤트 리스너
         nameCard.setOnClickListener {
-//            NameActivity를 시작하는 Intent를 만들고 startActivity로 실행
-            startActivity(Intent(this, NameActivity::class.java))
+            startActivity(Intent(mContext, NameActivity::class.java))
         }
+    }
 
+    override fun setupValues() {
 
     }
 
@@ -52,6 +57,8 @@ class MainActivity : AppCompatActivity() {
 
         return list.subList(0, 6)
     }
+
+
     /* -- Random() 사용 --
     //    랜덤으로 1~45 번중 하나의 번호를 생성하는 함수
     fun getRandomLottoNumber() : Int {
@@ -81,5 +88,4 @@ class MainActivity : AppCompatActivity() {
         return lottoNumbers
     }
      */
-
 }

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_result.*
 
-class ResultActivity : AppCompatActivity() {
+class ResultActivity : BaseActivity() {
 
     val lottoImageStartId = R.drawable.num1
 
@@ -12,6 +12,14 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        setupEvents()
+        setupValues()
+    }
+    override fun setupEvents() {
+
+    }
+
+    override fun setupValues() {
         val result = intent.getIntegerArrayListExtra("result")
 
         // 전달받은 결과가 있는 경우에만 실행
