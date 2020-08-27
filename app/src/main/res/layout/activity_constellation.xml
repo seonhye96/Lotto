@@ -34,7 +34,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/constellation" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
