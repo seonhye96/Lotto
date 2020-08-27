@@ -29,13 +29,22 @@ class ResultActivity : BaseActivity() {
         val result = intent.getIntegerArrayListExtra("result")
         // 전달받은 이름 가져옴
         var name = intent.getStringExtra("name")
+        // 전달받은 별자리 가져옴
+        var constellation = intent.getStringExtra("constellation")
 
         // 결과화면 기본 텍스트
-        resultLabel.text = "랜덤으로 생성된\n로또번호입니다."
+        resultLabel.text = "랜덤으로 생성된\n로또번호입니다"
 
         //name 이 전달된 경우 결과화면 텍스트
-        if(name != ""){
+        if(!TextUtils.isEmpty(name)){
             resultLabel.text = "${name} 님의\n${SimpleDateFormat("yyyy년 MM월 dd일").format(Date())}\n로또번호 입니다."
+        }
+
+        //별자리가 전달된 경우 텍스트 변경
+        if(!TextUtils.isEmpty(constellation)){
+            resultLabel.text = "${constellation}의\n" +
+                    "${SimpleDateFormat("yyyy년 MM월 dd일").format(Date())}\n" +
+                    "로또번호 입니다."
         }
 
 

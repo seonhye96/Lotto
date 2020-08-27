@@ -30,7 +30,7 @@ class NameActivity : BaseActivity() {
             }
 
             var intent = Intent(mContext, ResultActivity::class.java)
-            intent.putIntegerArrayListExtra("result", ArrayList(getLottoNumbersFromHash(editText.text.toString())))
+            intent.putIntegerArrayListExtra("result", ArrayList(LottonumberMaker.getLottoNumbersFromHash(editText.text.toString())))
             intent.putExtra("name", editText.text.toString())
             startActivity(intent)
         }
@@ -45,19 +45,6 @@ class NameActivity : BaseActivity() {
 
     }
 
-    /*입력받은 이름에 대한 해시코드를 사용하여 로또번호를 섞고 결과 반환*/
-    fun getLottoNumbersFromHash(name : String):MutableList<Int>{
-        var list = mutableListOf<Int>()
 
-        for (number in 1..45){
-            list.add(number)
-        }
-
-        var targetString = SimpleDateFormat("yyyy-MM-dd").format(Date()) + name
-
-        list.shuffle(Random(targetString.hashCode().toLong()))
-
-        return list.subList(0, 6)
-    }
 
 }
